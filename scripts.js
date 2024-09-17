@@ -2,7 +2,7 @@
 
 const clientId = "a8d951c9a7764fd0ba2ad2ceda8d8404";
 const clientSecret = "869ff777db2146c99f44ed2513587899";
-const playlistId = '0wCikTVwYGaSvppCFG75C1';
+const playlistId = '722wUkph9TqYEEUB0647mL';
 
 // Function to get an access token from Spotify
 async function getAccessToken() {
