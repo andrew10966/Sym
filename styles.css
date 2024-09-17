@@ -49,6 +49,7 @@ body {
     text-align: center;
     border-radius: 8px;
     box-sizing: border-box;
+    position: relative;
     transition: transform 0.2s;
   }
   
@@ -60,6 +61,7 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
+    cursor: pointer; /* Play on image click */
   }
   
   .song-item h3 {
@@ -72,13 +74,42 @@ body {
     margin: 5px 0;
   }
   
-  /* Audio Player Fix */
-  .song-item audio {
-    width: 100%; /* Ensure the audio player fits within the card */
-    margin-top: 10px;
+  /* Play/Pause Button Styling */
+  .image-container {
+    position: relative;
   }
   
-  /* Responsive Design - @media queries */
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Song Progress Bar */
+  .progress-bar-container {
+    position: relative;
+    background-color: #333;
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #1db954;
+    transition: width 0.1s;
+  }
+  
+  /* Responsive Design */
   @media screen and (max-width: 768px) {
     #search-bar {
       width: 100%;
@@ -90,7 +121,7 @@ body {
     }
   
     .song-item {
-      width: 90%; /* Make song items take up most of the width on smaller screens */
+      width: 90%;
     }
   }
   
@@ -100,7 +131,7 @@ body {
     }
   
     .song-item {
-      width: 100%; /* Song cards take full width on mobile */
+      width: 100%;
       margin: 10px 0;
     }
   }
