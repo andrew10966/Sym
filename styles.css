@@ -1,0 +1,107 @@
+/* General Styles */
+body {
+    background-color: #2b2b2b;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  #search-bar {
+    padding: 10px;
+    width: 300px;
+    background-color: #444;
+    border: 1px solid #666;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  #song-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Song Item Styling */
+  .song-item {
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    margin: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: transform 0.2s;
+  }
+  
+  .song-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .song-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .song-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .song-item p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  /* Audio Player Fix */
+  .song-item audio {
+    width: 100%; /* Ensure the audio player fits within the card */
+    margin-top: 10px;
+  }
+  
+  /* Responsive Design - @media queries */
+  @media screen and (max-width: 768px) {
+    #search-bar {
+      width: 100%;
+    }
+  
+    #song-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .song-item {
+      width: 90%; /* Make song items take up most of the width on smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 20px;
+    }
+  
+    .song-item {
+      width: 100%; /* Song cards take full width on mobile */
+      margin: 10px 0;
+    }
+  }
+  
