@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+    background-color: #2b2b2b;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  #search-bar {
+    padding: 10px;
+    width: 300px;
+    background-color: #444;
+    border: 1px solid #666;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  #song-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Song Item Styling */
+  .song-item {
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    margin: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  
+  .song-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .song-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer; /* Play on image click */
+  }
+  
+  .song-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .song-item p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  /* Play/Pause Button Styling */
+  .image-container {
+    position: relative;
+  }
+  
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Song Progress Bar */
+  .progress-bar-container {
+    position: relative;
+    background-color: #333;
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #1db954;
+    transition: width 0.1s;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    #search-bar {
+      width: 100%;
+    }
+  
+    #song-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .song-item {
+      width: 90%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 20px;
+    }
+  
+    .song-item {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
