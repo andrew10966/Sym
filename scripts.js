@@ -1,7 +1,7 @@
 // scripts.js
 
-const clientId = "a8d951c9a7764fd0ba2ad2ceda8d8404";
-const clientSecret = "a2cfb0c9d0154dd2b178e84c446c4612";
+const clientId = "d5fb03ab9e1f4e0e94bf081387cca7c9";
+const clientSecret = "ecb4f50449a14dfb929a1d2572530a68";
 const playlistId = '722wUkph9TqYEEUB0647mL';
 const redirectUri = 'http://127.0.0.1:5500/index.html'; // Change this to your actual redirect URI
 let accessToken = '';
