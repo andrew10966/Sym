@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Symph</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symph</title>
+
+    <!-- Include FontAwesome for play/pause icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script> <!-- Link to the new JS file -->
 </head>
 <body>
-  <header>
-    <h1>Song List</h1>
-  </header>
+    <div class="container">
+        <h1>Symphonic collab/comissions</h1>
 
-  <main>
-    <div id="song-list">
-      <!-- Song items will be dynamically inserted here -->
+        <!-- Search bar for song or artist -->
+        <input type="text" id="search" placeholder="Search by song title or artist..." />
+
+        <!-- Song List (collab items will be dynamically inserted here) -->
+        <div id="collab-list" class="collab-list"></div>
     </div>
-  </main>
-
-  <footer>
-    <p>(May take a while to load, <i>do not refresh</i>)</p>
-  </footer>
-
-  <script src="scripts.js"></script>
 </body>
 </html>
