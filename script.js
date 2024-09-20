@@ -165,7 +165,9 @@ function filterCollabs() {
 
     collabs.forEach(collab => {
         const collabName = collab.querySelector('h3 a').textContent.toLowerCase();
-        const matchesSearch = searchQuery === '' || collabName.includes(searchQuery);
+        const artistNames = collab.querySelector('p').textContent.toLowerCase(); // Artist names are inside <p>
+        
+        const matchesSearch = searchQuery === '' || collabName.includes(searchQuery) || artistNames.includes(searchQuery);
 
         if (matchesSearch) {
             collab.style.display = 'block';
@@ -174,6 +176,7 @@ function filterCollabs() {
         }
     });
 }
+
 
 // Fetch and display all the playlist tracks
 async function loadAllPlaylistTracks() {
