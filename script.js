@@ -1,9 +1,11 @@
 const clientId = "d5fb03ab9e1f4e0e94bf081387cca7c9";
 const clientSecret = "ecb4f50449a14dfb929a1d2572530a68";
 const tokenUrl = "https://accounts.spotify.com/api/token";
-const playlistUrl = "https://api.spotify.com/v1/playlists/722wUkph9TqYEEUB0647mL/tracks";
+const playlistId = "722wUkph9TqYEEUB0647mL";
+const playlistUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
 let currentAudio = null;
 let currentlyPlayingItem = null;
+
 
 // Fetch a token for Spotify API
 async function fetchToken() {
@@ -19,14 +21,29 @@ async function fetchToken() {
     return data.access_token;
 }
 
-// Fetch playlist tracks from Spotify
-async function fetchPlaylistTracks() {
-    const token = await fetchToken();
-    const response = await fetch(playlistUrl, {
-        headers: { 'Authorization': `Bearer ${token}` }
-    });
-    const data = await response.json();
-    return data.items;  // Return the array of track items
+// Fetch all playlist tracks from Spotify using pagination
+async function fetchAllPlaylistTracks(token) {
+    let offset = 0;
+    const limit = 100; // Max number of tracks per request
+    let allTracks = [];
+    let totalTracks = 0;
+
+    // Keep fetching until all tracks are retrieved
+    do {
+        const response = await fetch(`${playlistUrl}?offset=${offset}&limit=${limit}`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await response.json();
+        
+        // Add fetched tracks to the total list
+        allTracks = allTracks.concat(data.items);
+        totalTracks = data.total;
+
+        // Increase offset for the next batch of tracks
+        offset += limit;
+    } while (offset < totalTracks);
+
+    return allTracks;
 }
 
 // Create a collab item (song) to display
@@ -158,9 +175,12 @@ function filterCollabs() {
     });
 }
 
-// Fetch and display the playlist tracks
-async function loadPlaylistTracks() {
-    const tracks = await fetchPlaylistTracks();
+// Fetch and display all the playlist tracks
+async function loadAllPlaylistTracks() {
+    const token = await fetchToken();
+    const tracks = await fetchAllPlaylistTracks(token);
+    
+    // Create and display all collab items
     tracks.forEach(track => {
         const collabItem = createCollabItem(track);
         if (collabItem) {
@@ -169,5 +189,5 @@ async function loadPlaylistTracks() {
     });
 }
 
-// Load playlist tracks when the page loads
-window.onload = loadPlaylistTracks;
+// Load all playlist tracks when the page loads
+window.onload = loadAllPlaylistTracks;
